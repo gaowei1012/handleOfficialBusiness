@@ -21,49 +21,9 @@ export default class Personal extends React.PureComponent {
                 style={{ backgroundColor: "#fff" }}
             />
         );
-        const _topHeader = (
-            <View style={styles.topWrap} />
-        );
-        const _topBox = (
-            <View style={styles.topBox}>
-                <TouchableOpacity
-                    onPress={this.handleLogin}
-                    activeOpacity={1}
-                >
-                    <View style={styles.avatarBox}></View>
-                </TouchableOpacity>
-                <View style={styles.topAvatarDesc}>
-                    <View>
-                        <Text>11</Text>
-                        <Text>22</Text>
-                    </View>
-                    <Text>hhh</Text>
-                </View>
-            </View>
-        );
-        const _list = (
-            <ScrollView>
-                <RecommenItem
-                    url={'https://iph.href.lu/80x80?fg=666666&bg=cccccc'}
-                    content={'我是美食，我是美食，我是美食'}
-                />
-            </ScrollView>
-        )
-        const _content = (
-            <View style={styles.contentBox}>
-                <View style={styles.titleBox}>
-                    <View style={styles.line} />
-                    <Text style={styles.recommen}>我的推荐</Text>
-                </View>
-                <Text style={styles.desc}>你的推荐会帮助更多有选择困难症的小伙伴!</Text>
-            </View>
-        );
+        
         return <SafeAreaView style={styles.personalContainer}>
             {renderTop}
-            {_topHeader}
-            {_topBox}
-            {_content}
-            {_list}
         </SafeAreaView>
     }
 }
