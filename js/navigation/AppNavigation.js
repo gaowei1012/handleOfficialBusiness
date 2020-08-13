@@ -12,6 +12,8 @@ import {
 import Welcom from '../views/Welcom/Welcom';
 import Home from '../views/Home/Home';
 import Index from '../views/Index/Index';
+import Tips from '../views/Index/Tips'
+import Setting from '../views/Index/Setting'
 
 
 export const rootCom = 'Init';
@@ -37,6 +39,18 @@ const MainNavigator = createStackNavigator({
         navigationOptions: {
             header: null,
         },
+    },
+    Tips: {
+        screen: Tips,
+        navigationOptions: {
+            header: null
+        }
+    },
+    Setting: {
+        screen: Setting,
+        navigationOptions: {
+            header: null
+        }
     }
 });
 

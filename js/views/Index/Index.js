@@ -2,12 +2,21 @@ import React from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
 import { px2dp } from '../../utils/px2dp'
 import TopNavigationBar from '../../common/TopNavigationBar'
+import NavigationUtil from '../../utils/NavigationUtil'
 
 // Svg
 import Tips from '../../assets/svg/tips.svg'
 import Setting from '../../assets/svg/setting.svg'
 
 class Index extends React.PureComponent {
+
+    _tips=()=> {
+        NavigationUtil.goPage({}, 'Tips')
+    }
+
+    _setting=()=> {
+        NavigationUtil.goPage({}, 'Setting')
+    }
    
     render() {
         const _rightBtn = (
