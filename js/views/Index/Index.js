@@ -7,8 +7,18 @@ import NavigationUtil from '../../utils/NavigationUtil'
 // Svg
 import Tips from '../../assets/svg/tips.svg'
 import Setting from '../../assets/svg/setting.svg'
+import DaKa from '../../assets/svg/daka.svg'
 
 class Index extends React.PureComponent {
+
+    state = {
+        list: [
+            {id: 1, name: '上班打卡', icon: <DaKa width={24} height={24}/>, com: 'ClockIn' },
+            {id: 2, name: '出差申请', icon: <DaKa width={24} height={24}/>, com: 'BusinessTrip'  },
+            {id: 3, name: '日历', icon: <DaKa width={24} height={24}/>, com: 'Calendar'  },
+            {id: 4, name: '资金支付', icon: <DaKa width={24} height={24}/>, com: ''  },
+        ]
+    }
 
     _tips=()=> {
         NavigationUtil.goPage({}, 'Tips')
@@ -16,6 +26,12 @@ class Index extends React.PureComponent {
 
     _setting=()=> {
         NavigationUtil.goPage({}, 'Setting')
+    }
+
+    _goToPage=(com)=> {
+        if (com) {
+            NavigationUtil.goPage({}, com)
+        }
     }
    
     render() {
@@ -51,10 +67,24 @@ class Index extends React.PureComponent {
                 rightButton={_rightBtn}
             />
         );
+        const _content = (
+            <View style={styles.contentBox}>
+                {this.state.list.map(l => (
+                    <TouchableOpacity
+                        style={styles.menuBox}
+                        activeOpacity={1}
+                        onPress={() => this._goToPage(l.com)}
+                    >
+                        {l.icon}
+                        <Text style={styles.menuName}>{l.name}</Text>
+                    </TouchableOpacity>
+                ))}
+            </View>
+        )
         return (
             <SafeAreaView style={styles.landContainer}>
                 {renderTop}
-                <Text>首页</Text>
+                {_content}
             </SafeAreaView>
         )
     }
@@ -63,8 +93,9 @@ class Index extends React.PureComponent {
 export default Index
 
 const styles = StyleSheet.create({
-    indexContainer: {
-        flex: 1
+    landContainer: {
+        flex: 1,
+        // backgroundColor: '#f0f0f0f0'
     },
     rightBox: {
         flexDirection: 'row',
@@ -76,4 +107,21 @@ const styles = StyleSheet.create({
     settingBox: {
         marginLeft: px2dp(6)
     },
+    contentBox: {
+        width: px2dp(345),
+        alignSelf: 'center',
+        flexDirection: 'row',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+    },
+    menuBox: {
+        alignItems: 'center',
+        width: px2dp(110),
+        height: px2dp(80),
+        paddingHorizontal: px2dp(10),
+        paddingVertical: px2dp(10)
+    },
+    menuName: {
+        marginTop: px2dp(10)
+    }
 })

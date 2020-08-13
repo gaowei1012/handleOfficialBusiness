@@ -14,6 +14,9 @@ import Home from '../views/Home/Home';
 import Index from '../views/Index/Index';
 import Tips from '../views/Index/Tips'
 import Setting from '../views/Index/Setting'
+import ClockIn from '../views/Index/ClockIn'
+import BusinessTrip from '../views/Index/BusinessTrip'
+import Calendar from '../views/Index/Calendar'
 
 
 export const rootCom = 'Init';
@@ -48,6 +51,24 @@ const MainNavigator = createStackNavigator({
     },
     Setting: {
         screen: Setting,
+        navigationOptions: {
+            header: null
+        }
+    },
+    ClockIn: {
+        screen: ClockIn,
+        navigationOptions: {
+            header: null
+        }
+    },
+    BusinessTrip: {
+        screen: BusinessTrip,
+        navigationOptions: {
+            header: null
+        }
+    },
+    Calendar: {
+        screen: Calendar,
         navigationOptions: {
             header: null
         }
