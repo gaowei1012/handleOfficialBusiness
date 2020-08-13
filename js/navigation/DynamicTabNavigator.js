@@ -1,7 +1,7 @@
 
-import {connect} from 'react-redux';
-import React, {Component} from 'react';
-import {Image} from 'react-native';
+import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { Image } from 'react-native';
 import {
   createAppContainer,
   BottomTabBar,
@@ -9,15 +9,13 @@ import {
 } from 'react-navigation';
 
 import Index from '../views/Index/Index';
-import Order from '../views/Order/Order';
-import Personal from '../views/Personal/Personal';
 
 const TABS = {
   Index: {
     screen: Index,
     navigationOptions: {
       tabBarLabel: '首页',
-      tabBarIcon: ({tintColor, focused}) => {
+      tabBarIcon: ({ tintColor, focused }) => {
         return (
           <TabBarItem
             tintColor={tintColor}
@@ -28,39 +26,7 @@ const TABS = {
         );
       },
     },
-  },
-  Order: {
-    screen: Order,
-    navigationOptions: {
-      tabBarLabel: '订单',
-      tabBarIcon: ({tintColor, focused}) => {
-        return (
-          <TabBarItem
-            tintColor={tintColor}
-            focused={focused}
-            normalImage={require('../assets/tab/shop.png')}
-            selectedImage={require('../assets/tab/sele_shop.png')}
-          />
-        );
-      },
-    },
-  },
-  Personal: {
-    screen: Personal,
-    navigationOptions: {
-      tabBarLabel: '我的',
-      tabBarIcon: ({tintColor, focused}) => {
-        return (
-          <TabBarItem
-            tintColor={tintColor}
-            focused={focused}
-            normalImage={require('../assets/tab/shop.png')}
-            selectedImage={require('../assets/tab/sele_shop.png')}
-          />
-        );
-      },
-    },
-  },
+  }
 }
 
 
@@ -75,8 +41,8 @@ class DynamicTabNavigator extends Component {
     if (this.Tabs) {
       return this.Tabs;
     }
-    const {Index, Order, Personal} = TABS;
-    const tabs = {Index, Order, Personal};
+    const { Index } = TABS;
+    const tabs = { Index };
     // IndexPage.navigationOptions.tabBarLabel = '首页';
     return (this.Tabs = createBottomTabNavigator(tabs, {
       tabBarComponent: props => {
@@ -108,7 +74,7 @@ class TabBarItem extends React.Component {
     return (
       <Image
         // eslint-disable-next-line react-native/no-inline-styles
-        style={{tintColor: this.props.tintColor, width: 25, height: 25}}
+        style={{ tintColor: this.props.tintColor, width: 25, height: 25 }}
         source={
           this.props.focused ? this.props.selectedImage : this.props.normalImage
         }

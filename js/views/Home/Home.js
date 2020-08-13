@@ -2,6 +2,7 @@ import React from 'react'
 import {BackHandler, ToastAndroid} from 'react-native'
 import NavigationUtil from '../../utils/NavigationUtil'
 import DynamicTabNavigator from '../../navigation/DynamicTabNavigator'
+import IndexPage from '../Index/Index'
 
 export default class Home extends React.PureComponent {
     componentDidMount() {
@@ -29,6 +30,6 @@ export default class Home extends React.PureComponent {
     render() {
         // 保存 navigation
         NavigationUtil.navigation = this.props.navigation;
-        return <DynamicTabNavigator/>
+        return <IndexPage/>
     }
 }
