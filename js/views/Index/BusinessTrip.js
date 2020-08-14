@@ -61,7 +61,7 @@ class BusinessTrip extends React.PureComponent {
                 <Input
                     placeholder='目的地'
                     placeholderTextColor='#ccc'
-                    name='年龄'
+                    name='目的地'
                     isSelect={true}
                     onChangeText={this._address}
                 />
