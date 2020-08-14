@@ -37,6 +37,7 @@ class CalendarPage extends React.PureComponent {
                 {renderTop}
                 <Calendar
                     monthFormat={' yyyy MM '}
+                    // 日历打卡记录
                     markedDates={{
                         '2019-03-10': { selected: true, selectedColor: '#FFC1B5' },
                         '2019-03-11': { dots: [vacation], selected: true, selectedColor: '#FFC1B5' },
