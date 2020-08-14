@@ -17,6 +17,7 @@ import Setting from '../views/Index/Setting'
 import ClockIn from '../views/Index/ClockIn'
 import BusinessTrip from '../views/Index/BusinessTrip'
 import Calendar from '../views/Index/Calendar'
+import AskLeave from '../views/Index/AskLeave'
 
 
 export const rootCom = 'Init';
@@ -69,6 +70,12 @@ const MainNavigator = createStackNavigator({
     },
     Calendar: {
         screen: Calendar,
+        navigationOptions: {
+            header: null
+        }
+    },
+    AskLeave: {
+        screen: AskLeave,
         navigationOptions: {
             header: null
         }
