@@ -9,6 +9,8 @@ import {
     find_business_success,
     clock_in_fail,
     clock_in_success,
+    overtime_success,
+    overtime_fail
 } from './actions'
 
 function onLeaveAction(state = {}, action) {
@@ -91,10 +93,27 @@ function onClockInAction(state = {}, action) {
     }
 }
 
+function overTimeAction(state = {}, action) {
+    switch(action.type) {
+        case overtime_success:
+            return {
+                ...state,
+                item: action.item
+            }
+        case overtime_fail:
+            return {
+                ...state
+            }
+        default:
+            return state
+    }
+}
+
 export {
     onLeaveAction,
     onGetLeaveByIdAction,
     onGetBusinessByIdAction,
     onAddBusinessAction,
     onClockInAction,
+    overTimeAction,
 }

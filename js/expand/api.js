@@ -6,7 +6,8 @@ const constant = {
     getAllLeaveById: '/api/leave/getAllLeaveById',
     insterBusiness: '/api/buiness/insterBusiness',
     getBusiness: '/api/buiness/findBuiness',
-    clockIn: '/api/office/insterClockIn'
+    clockIn: '/api/office/insterClockIn',
+    overTime: '/api/overtime/insertOverTime'
 }
 
 export default constant
