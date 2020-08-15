@@ -18,6 +18,8 @@ import ClockIn from '../views/Index/ClockIn'
 import BusinessTrip from '../views/Index/BusinessTrip'
 import Calendar from '../views/Index/Calendar'
 import AskLeave from '../views/Index/AskLeave'
+import OvertimeApplication from '../views/Index/OvertimeApplication'
+import LeaveOff from '../views/Index/LeaveOff'
 
 
 export const rootCom = 'Init';
@@ -76,6 +78,18 @@ const MainNavigator = createStackNavigator({
     },
     AskLeave: {
         screen: AskLeave,
+        navigationOptions: {
+            header: null
+        }
+    },
+    OvertimeApplication: {
+        screen: OvertimeApplication,
+        navigationOptions: {
+            header: null
+        }
+    },
+    LeaveOff: {
+        screen: LeaveOff,
         navigationOptions: {
             header: null
         }

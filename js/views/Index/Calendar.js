@@ -39,10 +39,10 @@ class CalendarPage extends React.PureComponent {
                     monthFormat={' yyyy MM '}
                     // 日历打卡记录
                     markedDates={{
-                        '2019-03-10': { selected: true, selectedColor: '#FFC1B5' },
-                        '2019-03-11': { dots: [vacation], selected: true, selectedColor: '#FFC1B5' },
-                        '2019-03-12': { dots: [vacation] },
-                        '2019-03-13': { dots: [vacation] },
+                        '2020-08-20': { selected: true, selectedColor: '#FFC1B5' },
+                        '2020-08-21': { dots: [vacation], selected: true, selectedColor: '#FFC1B5' },
+                        '2020-08-22': { dots: [vacation] },
+                        '2020-08-23': { dots: [vacation] },
                     }}
                     markingType={'multi-dot'}
 

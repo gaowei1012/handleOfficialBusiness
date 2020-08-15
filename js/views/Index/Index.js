@@ -17,7 +17,10 @@ class Index extends React.PureComponent {
             {id: 2, name: '出差申请', icon: <DaKa width={24} height={24}/>, com: 'BusinessTrip'  },
             {id: 3, name: '日历', icon: <DaKa width={24} height={24}/>, com: 'Calendar'  },
             {id: 4, name: '资金支付', icon: <DaKa width={24} height={24}/>, com: ''  },
-            {id: 5, name: '请假', icon: <DaKa width={24} height={24}/>, com: 'AskLeave' }
+            {id: 5, name: '请假', icon: <DaKa width={24} height={24}/>, com: 'AskLeave' },
+            {id: 6, name: '销假', icon: <DaKa width={24} height={24}/>, com: 'LeaveOff' },
+            {id: 7, name: '加班', icon: <DaKa width={24} height={24}/>, com: 'OvertimeApplication' },
+            {id: 8, name: '消出差', icon: <DaKa width={24} height={24}/>, com: 'OvertimeApplication' },
         ]
     }
 
@@ -109,6 +112,7 @@ const styles = StyleSheet.create({
         marginLeft: px2dp(6)
     },
     contentBox: {
+        marginTop: px2dp(20),
         width: px2dp(345),
         alignSelf: 'center',
         flexDirection: 'row',

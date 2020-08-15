@@ -1,7 +1,11 @@
 const constant = {
-    base_url: 'http://127.0.0.1:5062',
+    base_url: 'http://127.0.0.1:7062',
     register: '/api/user/register',
-    login: '/api/user/login'
+    login: '/api/user/login',
+    insterLeave: '/api/leave/insterLeave',
+    getAllLeaveById: '/api/leave/getAllLeaveById',
+    insterBusiness: '/api/buiness/insterBusiness',
+    getBusiness: '/api/buiness/findBuiness'
 }
 
 export default constant

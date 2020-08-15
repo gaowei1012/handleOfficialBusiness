@@ -5,18 +5,22 @@ import { GoBack } from '../../utils/GoBack'
 import { px2dp } from '../../utils/px2dp'
 import Input from '../../components/Input'
 import { connect } from 'react-redux'
+import actions from './redux/actions'
+import constant from '../../expand/api'
+
+const { insterBusiness } = constant
 
 class BusinessTrip extends React.PureComponent {
     state = {
-        name: null,
+        username: null,
         address: null,
         date: null,
         reason: null,
         reason: null,
         remarks: null
     }
-    _name = (name) => {
-        this.setState({ name })
+    _name = (username) => {
+        this.setState({ username })
     }
     _address = (address) => {
         this.setState({ address })
@@ -33,7 +37,16 @@ class BusinessTrip extends React.PureComponent {
 
     // 提交
     handleSubmit = () => {
-
+        let { username, address, reason, remarks, date } = this.state
+        const { addBuinessData } = this.props
+        const data = {
+            "username": username,
+            "reason": reason,
+            "remarks": remarks,
+            "date": date,
+            "address": address
+        }
+        addBuinessData(insterBusiness, 'POST', data)
     }
 
     render() {
@@ -107,7 +120,11 @@ class BusinessTrip extends React.PureComponent {
     }
 }
 
-export default connect(({ }) => ({}), () => ({}))(BusinessTrip)
+export default connect(({ addBusiness }) => ({ addBusiness }), dispatch => ({
+    addBuinessData(url, method, data) {
+        dispatch(actions.addBuinessData(url, method, data))
+    }
+}))(BusinessTrip)
 
 const styles = StyleSheet.create({
     clockBox: {

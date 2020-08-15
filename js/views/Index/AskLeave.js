@@ -1,12 +1,54 @@
 import React from 'react'
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
 import TopNavigationBar from '../../common/TopNavigationBar'
 import { GoBack } from '../../utils/GoBack'
 import { px2dp } from '../../utils/px2dp'
 import { connect } from 'react-redux'
 import Input from '../../components/Input'
+import actions from './redux/actions'
+import constant from '../../expand/api'
+
+const { insterLeave } = constant
 
 class AskLeave extends React.PureComponent {
+
+    state = {
+        username: null,
+        address: null,
+        date: null,
+        reason: null,
+        remarks: null
+    }
+
+    _name = (username) => {
+        this.setState({ username })
+    }
+    _reason = (reason) => {
+        this.setState({ reason })
+    }
+    _remarks = (remarks) => {
+        this.setState({ remarks })
+    }
+    _date = (date) => {
+        this.setState({ date })
+    }
+    _address = (address) => {
+        this.setState({ address })
+    }
+
+    handleSubmit = () => {
+        let { username, reason, remarks, date, address } = this.state
+        const { addLeaveData } = this.props
+        const data = {
+            "username": username,
+            "reason": reason,
+            "remarks": remarks,
+            "date": date,
+            "address": address
+        }
+        addLeaveData(insterLeave, 'POST', data)
+    }
+
     render() {
         const StatusBar = {
             backgroundColor: "#ffffff",
@@ -32,7 +74,7 @@ class AskLeave extends React.PureComponent {
                 <Input
                     placeholder='目的地'
                     placeholderTextColor='#ccc'
-                    name='年龄'
+                    name='目的地'
                     isSelect={true}
                     onChangeText={this._address}
                 />
@@ -44,7 +86,7 @@ class AskLeave extends React.PureComponent {
                     onChangeText={this._date}
                 />
                 <Input
-                    placeholder='填写出差事由'
+                    placeholder='填写请假原因'
                     placeholderTextColor='#ccc'
                     name='事由'
                     isSelect={true}
@@ -77,7 +119,11 @@ class AskLeave extends React.PureComponent {
     }
 }
 
-export default connect(({ }) => ({}), dispatch => ({}))(AskLeave)
+export default connect(({ addLeave }) => ({ addLeave }), dispatch => ({
+    addLeaveData(url, method, data) {
+        dispatch(actions.addLeaveData(url, method, data))
+    }
+}))(AskLeave)
 
 const styles = StyleSheet.create({
     aske: {
