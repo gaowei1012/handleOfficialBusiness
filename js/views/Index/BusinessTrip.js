@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { SafeAreaView, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import TopNavigationBar from '../../common/TopNavigationBar'
 import { GoBack } from '../../utils/GoBack'
 import { px2dp } from '../../utils/px2dp'

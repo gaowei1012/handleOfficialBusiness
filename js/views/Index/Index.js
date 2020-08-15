@@ -20,7 +20,7 @@ class Index extends React.PureComponent {
             {id: 5, name: '请假', icon: <DaKa width={24} height={24}/>, com: 'AskLeave' },
             {id: 6, name: '销假', icon: <DaKa width={24} height={24}/>, com: 'LeaveOff' },
             {id: 7, name: '加班申请', icon: <DaKa width={24} height={24}/>, com: 'OvertimeApplication' },
-            {id: 8, name: '消出差', icon: <DaKa width={24} height={24}/>, com: 'OvertimeApplication' },
+            // {id: 8, name: '消出差', icon: <DaKa width={24} height={24}/>, com: 'OvertimeApplication' },
         ]
     }
 
