@@ -10,6 +10,8 @@ export const add_buiness_sucess = 'add_buiness_sucess'
 export const add_buiness_fail = 'add_buiness_fail'
 export const find_business_success = 'find_business_success'
 export const find_business_fail = 'find_business_fail'
+export const clock_in_success = 'clock_in_success'
+export const clock_in_fail = 'clock_in_fail'
 
 
 function addLeaveData(url, method, data) {
@@ -60,9 +62,22 @@ function findBusinessById(url, method, data) {
     }
 }
 
+function clockInData(url, method, data) {
+    return dispatch => {
+        request(url, method, data)
+            .then(ret => {
+                handleData(dispatch, ret, clock_in_success)
+            })
+            .catch(err => {
+                handleErrorData(dispatch, err, clock_in_fail)
+            })
+    }
+}
+
 export default {
     addLeaveData,
     getAllLeaveByIdData,
     addBuinessData,
-    findBusinessById
+    findBusinessById,
+    clockInData
 }

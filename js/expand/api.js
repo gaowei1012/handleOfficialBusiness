@@ -5,7 +5,8 @@ const constant = {
     insterLeave: '/api/leave/insterLeave',
     getAllLeaveById: '/api/leave/getAllLeaveById',
     insterBusiness: '/api/buiness/insterBusiness',
-    getBusiness: '/api/buiness/findBuiness'
+    getBusiness: '/api/buiness/findBuiness',
+    clockIn: '/api/office/insterClockIn'
 }
 
 export default constant

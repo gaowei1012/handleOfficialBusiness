@@ -6,7 +6,9 @@ import {
     add_buiness_fail,
     add_buiness_sucess,
     find_business_fail,
-    find_business_success
+    find_business_success,
+    clock_in_fail,
+    clock_in_success,
 } from './actions'
 
 function onLeaveAction(state = {}, action) {
@@ -73,9 +75,26 @@ function onGetBusinessByIdAction(state = {}, action) {
     }
 }
 
+function onClockInAction(state = {}, action) {
+    switch(action.type) {
+        case clock_in_success:
+            return {
+                ...state,
+                item: action.item
+            }
+        case clock_in_fail:
+            return {
+                ...state
+            }
+        default:
+            return state
+    }
+}
+
 export {
     onLeaveAction,
     onGetLeaveByIdAction,
     onGetBusinessByIdAction,
-    onAddBusinessAction
+    onAddBusinessAction,
+    onClockInAction,
 }
