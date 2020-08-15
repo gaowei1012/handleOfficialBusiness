@@ -9,6 +9,8 @@ import {
     onClockInAction,
     overTimeAction,
     infoAction,
+    onLoginAction,
+    onRegisterAction,
 } from '../../views/Index/redux/reducres'
 
 const navState = RootNavigation.router.getStateForAction(
@@ -30,6 +32,8 @@ const root = combineReducers({
     clockIn: onClockInAction,
     overTime: overTimeAction,
     info: infoAction,
+    login: onLoginAction,
+    register: onRegisterAction,
 })
 
 export default root

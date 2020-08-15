@@ -1,8 +1,8 @@
 
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import NavigationUtil from '../../utils/NavigationUtil';
-
+import NavigationUtil from '../../utils/NavigationUtil'
+import {width,height} from '../../utils/px2dp'
 export default class Welcom extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +18,7 @@ export default class Welcom extends Component {
       NavigationUtil.restToHomePage({
         navigation: this.props.navigation,
       });
-    }, 300);
+    }, 1000);
   }
 
   componentWillMount() {
@@ -28,7 +28,7 @@ export default class Welcom extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.containerBox}>
-            <Text>欢迎页</Text>
+        <Image style={{width: width, height: height}} source={require('../../assets/common/weclome.png')}/>
         </View>
       </View>
     );

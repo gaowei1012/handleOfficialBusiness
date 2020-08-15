@@ -12,8 +12,44 @@ import {
     overtime_success,
     overtime_fail,
     info_success,
-    info_fail
+    info_fail,
+    login_fail,
+    login_success,
+    register_fail,
+    register_success,
 } from './actions'
+
+function onLoginAction(state = {}, action) {
+    switch(action.type) {
+        case login_success:
+            return {
+                ...state,
+                item: action.item
+            }
+        case login_fail:
+            return {
+                ...state
+            }
+        default:
+            return state
+    }
+}
+
+function onRegisterAction(state = {}, action) {
+    switch(action.type) {
+        case register_success:
+            return {
+                ...state,
+                item: action.item
+            }
+        case register_fail:
+            return {
+                ...state
+            }
+        default:
+            return state
+    }
+}
 
 function onLeaveAction(state = {}, action) {
     switch(action.type) {
@@ -135,4 +171,6 @@ export {
     onClockInAction,
     overTimeAction,
     infoAction,
+    onLoginAction,
+    onRegisterAction,
 }

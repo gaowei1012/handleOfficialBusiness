@@ -16,7 +16,34 @@ export const overtime_success = 'overtime_success'
 export const overtime_fail = 'overtime_fail'
 export const info_success = 'info_success'
 export const info_fail = 'info_fail'
+export const login_success = 'login_success'
+export const login_fail = 'login_fail'
+export const register_success = 'register_success'
+export const register_fail = 'register_fail'
 
+function loginData(url, method, data) {
+    return dispatch => {
+        request(url, method, data)
+            .then(ret => {
+                handleData(dispatch, ret, login_success)
+            })
+            .catch(err => {
+                handleErrorData(dispatch, err, login_fail)
+            })
+    }
+}
+
+function registerData(url, method, data) {
+    return dispatch => {
+        request(url, method, data)
+            .then(ret => {
+                handleData(dispatch, ret, register_success)
+            })
+            .catch(err => {
+                handleErrorData(dispatch, err, register_fail)
+            })
+    }
+}
 
 function addLeaveData(url, method, data) {
     return dispatch => {
@@ -111,4 +138,6 @@ export default {
     clockInData,
     overTimeData,
     getInfoData,
+    loginData,
+    registerData,
 }

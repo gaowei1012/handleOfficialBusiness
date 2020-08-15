@@ -1,14 +1,18 @@
 import React from 'react'
-import { View, StyleSheet, SafeAreaView } from 'react-native'
+import { View, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
 import TopNavigationBar from '../../common/TopNavigationBar'
 import { GoBack } from '../../utils/GoBack'
 import SettingItem from './components/setting'
+import NavigationUtil from '../../utils/NavigationUtil'
 
 // svg 
 import Ban from '../../assets/svg/ban.svg'
 import { px2dp } from '../../utils/px2dp'
 
 class Setting extends React.PureComponent {
+    _login = () => {
+        NavigationUtil.goPage({}, 'Login')
+    }
     render() {
         const StatusBar = {
             backgroundColor: "#ffffff",
@@ -23,21 +27,23 @@ class Setting extends React.PureComponent {
             />
         );
         const _header = (
-            <View style={styles.headerBox}>
-                <View style={styles.avatar}/>
-            </View>
-        )
+            <TouchableOpacity
+                onPress={this._login}
+                style={styles.headerBox}>
+                <View style={styles.avatar} />
+            </TouchableOpacity>
+        );
         const _content = (
             <>
                 <SettingItem
                     name='name'
                     onPress={() => { }}
-                    icon={<Ban width='22' height='22'/>}
+                    icon={<Ban width='22' height='22' />}
                 />
                 <SettingItem
                     name='name'
                     onPress={() => { }}
-                    icon={<Ban width='22' height='22'/>}
+                    icon={<Ban width='22' height='22' />}
                 />
             </>
         );
@@ -47,7 +53,7 @@ class Setting extends React.PureComponent {
                 {_header}
                 {_content}
             </SafeAreaView>
-        )
+        );
     }
 }
 
@@ -66,6 +72,6 @@ const styles = StyleSheet.create({
         width: px2dp(60),
         height: px2dp(60),
         borderRadius: px2dp(30),
-        backgroundColor:'red'
+        backgroundColor: 'red'
     }
 })

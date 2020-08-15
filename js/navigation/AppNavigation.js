@@ -20,6 +20,7 @@ import Calendar from '../views/Index/Calendar'
 import AskLeave from '../views/Index/AskLeave'
 import OvertimeApplication from '../views/Index/OvertimeApplication'
 import LeaveOff from '../views/Index/LeaveOff'
+import Login from '../views/Index/Login'
 
 
 export const rootCom = 'Init';
@@ -90,6 +91,12 @@ const MainNavigator = createStackNavigator({
     },
     LeaveOff: {
         screen: LeaveOff,
+        navigationOptions: {
+            header: null
+        }
+    },
+    Login: {
+        screen: Login,
         navigationOptions: {
             header: null
         }
