@@ -14,6 +14,8 @@ export const clock_in_success = 'clock_in_success'
 export const clock_in_fail = 'clock_in_fail'
 export const overtime_success = 'overtime_success'
 export const overtime_fail = 'overtime_fail'
+export const info_success = 'info_success'
+export const info_fail = 'info_fail'
 
 
 function addLeaveData(url, method, data) {
@@ -88,11 +90,25 @@ function overTimeData(url, method, data) {
     }
 }
 
+function getInfoData(url, method) {
+    return dispatch => {
+        request(url, method)
+            .then(ret => {
+                const data = ret.data
+                handleData(dispatch, data, info_success)
+            })
+            .catch(err => {
+                handleErrorData(dispatch, err, info_fail)
+            })
+    }
+}
+
 export default {
     addLeaveData,
     getAllLeaveByIdData,
     addBuinessData,
     findBusinessById,
     clockInData,
-    overTimeData
+    overTimeData,
+    getInfoData,
 }

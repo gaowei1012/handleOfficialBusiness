@@ -7,7 +7,8 @@ const constant = {
     insterBusiness: '/api/buiness/insterBusiness',
     getBusiness: '/api/buiness/findBuiness',
     clockIn: '/api/office/insterClockIn',
-    overTime: '/api/overtime/insertOverTime'
+    overTime: '/api/overtime/insertOverTime',
+    getInfo: '/api/message/findInfo',
 }
 
 export default constant
