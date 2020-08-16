@@ -9,7 +9,7 @@ import Arrow from '../../../assets/svg/arrow.svg'
 function SettingItem({ onPress, name, icon }) {
     return (
         <TouchableOpacity
-            activeOpacity={.5}
+            activeOpacity={1}
             onPress={onPress}
             style={styles.container}
         >

@@ -17,7 +17,25 @@ import {
     login_success,
     register_fail,
     register_success,
+    resign_fail,
+    resign_success
 } from './actions'
+
+function onResignAction(state = {}, action) {
+    switch(action.type) {
+        case register_success:
+            return {
+                ...state,
+                item: action.item
+            }
+        case resign_fail:
+            return {
+                ...state
+            }
+        default:
+            return state
+    }
+}
 
 function onLoginAction(state = {}, action) {
     switch(action.type) {
@@ -173,4 +191,5 @@ export {
     infoAction,
     onLoginAction,
     onRegisterAction,
+    onResignAction,
 }

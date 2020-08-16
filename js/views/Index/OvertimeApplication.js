@@ -126,12 +126,12 @@ const styles = StyleSheet.create({
     },
     ftBox: {
         marginTop: px2dp(100),
-        width: px2dp(312),
+        width: px2dp(335),
         alignSelf: 'center',
         alignItems: 'center',
-        height: px2dp(32),
-        backgroundColor: 'blue',
-        borderRadius: px2dp(6),
+        height: px2dp(36),
+        backgroundColor: '#33CC99',
+        borderRadius: px2dp(3),
         justifyContent: 'center'
     },
     ftText: {

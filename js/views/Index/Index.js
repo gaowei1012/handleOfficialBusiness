@@ -7,19 +7,26 @@ import NavigationUtil from '../../utils/NavigationUtil'
 // Svg
 import Tips from '../../assets/svg/tips.svg'
 import Setting from '../../assets/svg/setting.svg'
-import DaKa from '../../assets/svg/daka.svg'
+import DaKa from '../../assets/svg/da.svg'
+import Qing from '../../assets/svg/qing.svg'
+import Jia from '../../assets/svg/jia.svg'
+import Ri from '../../assets/svg/ri.svg'
+import Li from '../../assets/svg/li.svg'
+import Chu from '../../assets/svg/chu.svg'
+
+
 
 class Index extends React.PureComponent {
 
     state = {
         list: [
             {id: 1, name: '上班打卡', icon: <DaKa width={24} height={24}/>, com: 'ClockIn' },
-            {id: 2, name: '出差申请', icon: <DaKa width={24} height={24}/>, com: 'BusinessTrip'  },
-            {id: 3, name: '日历', icon: <DaKa width={24} height={24}/>, com: 'Calendar'  },
-            {id: 4, name: '资金支付', icon: <DaKa width={24} height={24}/>, com: ''  },
-            {id: 5, name: '请假', icon: <DaKa width={24} height={24}/>, com: 'AskLeave' },
-            {id: 6, name: '销假', icon: <DaKa width={24} height={24}/>, com: 'LeaveOff' },
-            {id: 7, name: '加班申请', icon: <DaKa width={24} height={24}/>, com: 'OvertimeApplication' },
+            {id: 2, name: '出差申请', icon: <Chu width={24} height={24}/>, com: 'BusinessTrip'  },
+            {id: 3, name: '日历', icon: <Ri width={24} height={24}/>, com: 'Calendar'  },
+            {id: 4, name: '离职', icon: <Li width={24} height={24}/>, com: 'Resign'  },
+            {id: 5, name: '请假', icon: <Qing width={24} height={24}/>, com: 'AskLeave' },
+            // {id: 6, name: '销假', icon: <DaKa width={24} height={24}/>, com: 'LeaveOff' },
+            {id: 7, name: '加班申请', icon: <Jia width={24} height={24}/>, com: 'OvertimeApplication' },
             // {id: 8, name: '消出差', icon: <DaKa width={24} height={24}/>, com: 'OvertimeApplication' },
         ]
     }

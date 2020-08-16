@@ -20,6 +20,20 @@ export const login_success = 'login_success'
 export const login_fail = 'login_fail'
 export const register_success = 'register_success'
 export const register_fail = 'register_fail'
+export const resign_success = 'resign_success'
+export const resign_fail = 'resign_fail'
+
+function resignData(url, method, data) {
+    return dispatch => {
+        request(url, method, data)
+            .then(ret => {
+                handleData(dispatch, ret, login_success)
+            })
+            .catch(err => {
+                handleErrorData(dispatch, err, login_fail)
+            })
+    }
+}
 
 function loginData(url, method, data) {
     return dispatch => {
@@ -140,4 +154,5 @@ export default {
     getInfoData,
     loginData,
     registerData,
+    resignData,
 }

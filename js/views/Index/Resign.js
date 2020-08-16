@@ -1,29 +1,26 @@
 import React from 'react'
-import { SafeAreaView, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native'
+import { px2dp } from '../../utils/px2dp'
 import TopNavigationBar from '../../common/TopNavigationBar'
 import { GoBack } from '../../utils/GoBack'
-import { px2dp } from '../../utils/px2dp'
 import Input from '../../components/Input'
-import { connect } from 'react-redux'
-import actions from './redux/actions'
 import constant from '../../expand/api'
+import {connect} from 'react-redux'
+import actions from './redux/actions'
 
-const { insterBusiness } = constant
+const { resign } = constant
 
-class BusinessTrip extends React.PureComponent {
+class Resign extends React.PureComponent {
     state = {
         username: null,
-        address: null,
-        date: null,
-        reason: null,
+        start_time: null,
+        end_time: null,
         reason: null,
         remarks: null
     }
+
     _name = (username) => {
         this.setState({ username })
-    }
-    _address = (address) => {
-        this.setState({ address })
     }
     _reason = (reason) => {
         this.setState({ reason })
@@ -31,24 +28,25 @@ class BusinessTrip extends React.PureComponent {
     _remarks = (remarks) => {
         this.setState({ remarks })
     }
-    _date = (date) => {
-        this.setState({ date })
+    _endTime = (end_time) => {
+        this.setState({ end_time })
+    }
+    _createTime = (start_time) => {
+        this.setState({ start_time })
     }
 
-    // 提交
     handleSubmit = () => {
-        let { username, address, reason, remarks, date } = this.state
-        const { addBuinessData } = this.props
+        let { username, reason, remarks, end_time, start_time } = this.state
+        const { resignData } = this.props
         const data = {
             "username": username,
             "reason": reason,
             "remarks": remarks,
-            "date": date,
-            "address": address
+            "end_time": end_time,
+            "start_time": start_time
         }
-        addBuinessData(insterBusiness, 'POST', data)
+        resignData(resign, 'POST', data)
     }
-
     render() {
         const StatusBar = {
             backgroundColor: "#ffffff",
@@ -56,7 +54,7 @@ class BusinessTrip extends React.PureComponent {
         };
         const renderTop = (
             <TopNavigationBar
-                title='出差申请'
+                title='离职申请'
                 statusBar={StatusBar}
                 style={{ backgroundColor: "#fff" }}
                 leftButton={GoBack(this.props)}
@@ -72,23 +70,23 @@ class BusinessTrip extends React.PureComponent {
                     onChangeText={this._name}
                 />
                 <Input
-                    placeholder='目的地'
+                    placeholder='入职时间'
                     placeholderTextColor='#ccc'
-                    name='目的地'
+                    name='入职时间'
                     isSelect={true}
-                    onChangeText={this._address}
+                    onChangeText={this._createTime}
                 />
                 <Input
-                    placeholder='填写出差时间'
+                    placeholder='离职时间'
                     placeholderTextColor='#ccc'
-                    name='时间'
+                    name='离职时间'
                     isSelect={true}
-                    onChangeText={this._date}
+                    onChangeText={this._endTime}
                 />
                 <Input
-                    placeholder='填写出差事由'
+                    placeholder='原因'
                     placeholderTextColor='#ccc'
-                    name='事由'
+                    name='离职原因'
                     isSelect={true}
                     onChangeText={this._reason}
                 />
@@ -100,7 +98,6 @@ class BusinessTrip extends React.PureComponent {
                 />
             </>
         );
-
         const _fotter = (
             <TouchableOpacity
                 style={styles.ftBox}
@@ -111,7 +108,7 @@ class BusinessTrip extends React.PureComponent {
             </TouchableOpacity>
         );
         return (
-            <SafeAreaView style={styles.clockBox}>
+            <SafeAreaView style={styles.container}>
                 {renderTop}
                 {_content}
                 {_fotter}
@@ -120,14 +117,14 @@ class BusinessTrip extends React.PureComponent {
     }
 }
 
-export default connect(({ addBusiness }) => ({ addBusiness }), dispatch => ({
-    addBuinessData(url, method, data) {
-        dispatch(actions.addBuinessData(url, method, data))
+export default connect(({resign}) => ({resign}), dispatch => ({
+    resignData(url, method, data) {
+        dispatch(actions.resignData(url, method, data))
     }
-}))(BusinessTrip)
+}))(Resign)
 
 const styles = StyleSheet.create({
-    clockBox: {
+    container: {
         flex: 1
     },
     ftBox: {

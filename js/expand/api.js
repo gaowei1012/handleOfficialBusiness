@@ -9,6 +9,7 @@ const constant = {
     clockIn: '/api/office/insterClockIn',
     overTime: '/api/overtime/insertOverTime',
     getInfo: '/api/message/findInfo',
+    resign: '/api/resign/insertResign',
 }
 
 export default constant
