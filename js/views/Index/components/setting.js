@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { px2dp } from '../../../utils/px2dp'
 import PropTyeps from 'prop-types'
 
+// svg
 import Arrow from '../../../assets/svg/arrow.svg'
 
 function SettingItem({ onPress, name, icon }) {

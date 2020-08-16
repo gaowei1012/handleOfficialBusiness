@@ -21,6 +21,8 @@ import AskLeave from '../views/Index/AskLeave'
 import OvertimeApplication from '../views/Index/OvertimeApplication'
 import LeaveOff from '../views/Index/LeaveOff'
 import Login from '../views/Index/Login'
+import SySetting from '../views/Index/SySetting'
+import About from '../views/Index/About'
 
 
 export const rootCom = 'Init';
@@ -97,6 +99,18 @@ const MainNavigator = createStackNavigator({
     },
     Login: {
         screen: Login,
+        navigationOptions: {
+            header: null
+        }
+    },
+    About: {
+        screen: About,
+        navigationOptions: {
+            header: null
+        }
+    },
+    SySetting: {
+        screen: SySetting,
         navigationOptions: {
             header: null
         }

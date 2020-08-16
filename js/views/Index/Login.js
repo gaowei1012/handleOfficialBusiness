@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         backgroundColor: '#ddd',
-        height: px2dp(30),
+        height: px2dp(36),
         marginBottom: px2dp(16),
         paddingLeft: px2dp(8),
         borderRadius: px2dp(4)
