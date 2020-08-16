@@ -123,7 +123,7 @@ class Login extends React.PureComponent {
                         activeOpacity={1}
                         onPress={this._switch}
                     >
-                        <Text>注册</Text>
+                        <Text style={styles.fotText}>注册</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         activeOpacity={1}
@@ -136,21 +136,25 @@ class Login extends React.PureComponent {
                     activeOpacity={1}
                     onPress={this._switchLogin}
                     style={styles.footerBox}>
-                        <Text>登录</Text>
+                        <Text style={styles.fotText}>登录</Text>
                     </TouchableOpacity>}
             </>
         );
         const _footerBtn = (
             <>
-                {this.state.register ? <Button
+                {this.state.register ? <TouchableOpacity
                     style={styles.submitBox}
                     onPress={this._submit}
-                    title='登录'
-                /> : <Button
+                    activeOpacity={1}
+                >
+                    <Text style={styles.submitText}>登录</Text>
+                </TouchableOpacity> : <TouchableOpacity
                         onPress={this._register}
-                        title='注册'
                         style={styles.submitBox}
-                    />}
+                        activeOpacity={1}
+                    >
+                        <Text style={styles.submitText}>注册</Text>    
+                    </TouchableOpacity>}
                 {_password}
             </>
         );
@@ -165,7 +169,7 @@ class Login extends React.PureComponent {
     }
 }
 
-export default connect(({login}) => ({login}), dispatch => ({
+export default connect(({login, register}) => ({login, }), dispatch => ({
     loginData(url, method, data) {
         dispatch(actions.loginData(url, method, data))
     }
@@ -196,7 +200,12 @@ const styles = StyleSheet.create({
     submitBox: {
         marginTop: px2dp(80),
         width: px2dp(335),
-        alignSelf: 'center'
+        height: px2dp(36),
+        borderRadius: px2dp(3),
+        backgroundColor: '#33CC99',
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     submitText: {
         color: '#fff',
@@ -220,5 +229,8 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         paddingHorizontal: px2dp(6),
         justifyContent: 'space-between'
+    },
+    fotText: {
+        color: '#333'
     }
 })
