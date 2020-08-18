@@ -8,6 +8,7 @@ import constant from '../../expand/api'
 import { connect } from 'react-redux'
 import actions from './redux/actions'
 import { Loading } from '../../utils/Loading'
+import NavigationUtil from '../../utils/NavigationUtil'
 
 const { login, register } = constant
 
@@ -46,7 +47,12 @@ class Login extends React.PureComponent {
                 "username": registerAccount,
                 "password": registerPassword
             }
+            Loading.show()
             getRegister(register, 'POST', data)
+
+            setTimeout(() => {
+                Loading.hidden()
+            }, 300)
         }
     }
     // 切换到注册
@@ -68,7 +74,12 @@ class Login extends React.PureComponent {
 
     // 登录
     _submit = () => {
+        Loading.show()
 
+        setTimeout(() => {
+            Loading.hidden()
+            NavigationUtil.goBack(this.props.navigation)
+        }, 300)
     }
     render() {
         const StatusBar = {
