@@ -24,6 +24,7 @@ import Login from '../views/Index/Login'
 import SySetting from '../views/Index/SySetting'
 import About from '../views/Index/About'
 import Resign from '../views/Index/Resign'
+import Postion from '../views/Index/Postion'
 
 
 export const rootCom = 'Init';
@@ -118,6 +119,12 @@ const MainNavigator = createStackNavigator({
     },
     Resign: {
         screen: Resign,
+        navigationOptions: {
+            header: null
+        }
+    },
+    Postion: {
+        screen: Postion,
         navigationOptions: {
             header: null
         }

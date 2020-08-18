@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 import Input from '../../components/Input'
 import actions from './redux/actions'
 import constant from '../../expand/api'
+import { Loading } from '../../utils/Loading'
+import NavigationUtil from '../../utils/NavigationUtil'
 
 const { insterLeave } = constant
 
@@ -38,7 +40,8 @@ class AskLeave extends React.PureComponent {
 
     handleSubmit = () => {
         let { username, reason, remarks, date, address } = this.state
-        const { addLeaveData } = this.props
+        let { addLeaveData } = this.props
+        Loading.show()
         const data = {
             "username": username,
             "reason": reason,
@@ -47,6 +50,11 @@ class AskLeave extends React.PureComponent {
             "address": address
         }
         addLeaveData(insterLeave, 'POST', data)
+
+        setTimeout(() => {
+            Loading.hidden()
+            NavigationUtil.goBack(this.props.navigation)
+        }, 300)
     }
 
     render() {

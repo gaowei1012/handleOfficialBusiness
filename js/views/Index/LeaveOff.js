@@ -3,6 +3,7 @@ import {View,SafeAreaView,StyleSheet,TouchableOpacity,Text} from 'react-native'
 import {px2dp} from '../../utils/px2dp'
 import TopNavigationBar from '../../common/TopNavigationBar'
 import { GoBack } from '../../utils/GoBack'
+import { Loading } from '../../utils/Loading'
 
 class LeaveOff extends React.PureComponent {
     render() {

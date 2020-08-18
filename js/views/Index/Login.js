@@ -1,14 +1,15 @@
 import React from 'react'
-import {View,Text,StyleSheet,TouchableOpacity,SafeAreaView,TextInput} from 'react-native'
-import {px2dp} from '../../utils/px2dp'
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput } from 'react-native'
+import { px2dp } from '../../utils/px2dp'
 import { Button } from 'react-native-elements'
 import { GoBack } from '../../utils/GoBack'
 import TopNavigationBar from '../../common/TopNavigationBar'
 import constant from '../../expand/api'
 import { connect } from 'react-redux'
 import actions from './redux/actions'
+import { Loading } from '../../utils/Loading'
 
-const { login, register} = constant
+const { login, register } = constant
 
 class Login extends React.PureComponent {
     state = {
@@ -61,8 +62,13 @@ class Login extends React.PureComponent {
         })
     }
     // 忘记密码
-    _forget=()=> {
+    _forget = () => {
         Toast.showToast('功能开发中')
+    }
+
+    // 登录
+    _submit = () => {
+
     }
     render() {
         const StatusBar = {
@@ -149,11 +155,11 @@ class Login extends React.PureComponent {
                 >
                     <Text style={styles.submitText}>登录</Text>
                 </TouchableOpacity> : <TouchableOpacity
-                        onPress={this._register}
-                        style={styles.submitBox}
-                        activeOpacity={1}
-                    >
-                        <Text style={styles.submitText}>注册</Text>    
+                    onPress={this._register}
+                    style={styles.submitBox}
+                    activeOpacity={1}
+                >
+                        <Text style={styles.submitText}>注册</Text>
                     </TouchableOpacity>}
                 {_password}
             </>
@@ -169,7 +175,7 @@ class Login extends React.PureComponent {
     }
 }
 
-export default connect(({login, register}) => ({login, }), dispatch => ({
+export default connect(({ login, register }) => ({ login, }), dispatch => ({
     loginData(url, method, data) {
         dispatch(actions.loginData(url, method, data))
     }

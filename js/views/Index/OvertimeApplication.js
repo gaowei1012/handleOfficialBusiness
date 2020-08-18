@@ -7,6 +7,8 @@ import Input from '../../components/Input'
 import actions from './redux/actions'
 import { connect } from 'react-redux'
 import constant from '../../expand/api'
+import { Loading } from '../../utils/Loading'
+import NavigationUtil from '../../utils/NavigationUtil'
 
 const { overTime } = constant
 
@@ -36,12 +38,19 @@ class OvertimeApplication extends React.PureComponent {
     }
 
     handleSubmit = () => {
-        const { overTimeData } = this.props
+        let { overTimeData } = this.props
         const data = {
             "username": "执念",
             "": ""
         }
+        Loading.show()
         overTimeData(overTime, 'POST', data)
+
+        // 延时
+        setTimeout(() => {
+            Loading.hidden()
+            NavigationUtil.goBack(this.props.navigation)
+        }, 300)
     }
 
     render() {

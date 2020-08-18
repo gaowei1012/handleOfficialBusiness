@@ -7,6 +7,7 @@ import Input from '../../components/Input'
 import { connect } from 'react-redux'
 import actions from './redux/actions'
 import constant from '../../expand/api'
+import { Loading } from '../../utils/Loading'
 
 const { insterBusiness } = constant
 
@@ -38,7 +39,8 @@ class BusinessTrip extends React.PureComponent {
     // 提交
     handleSubmit = () => {
         let { username, address, reason, remarks, date } = this.state
-        const { addBuinessData } = this.props
+        let { addBuinessData } = this.props
+        Loading.show()
         const data = {
             "username": username,
             "reason": reason,
@@ -47,6 +49,9 @@ class BusinessTrip extends React.PureComponent {
             "address": address
         }
         addBuinessData(insterBusiness, 'POST', data)
+        setTimeout(() => {
+            Loading.hidden()
+        }, 600)
     }
 
     render() {

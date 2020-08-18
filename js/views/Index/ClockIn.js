@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { SafeAreaView, PermissionsAndroid, Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { px2dp } from '../../utils/px2dp'
 import TopNavigationBar from '../../common/TopNavigationBar'
 import { GoBack } from '../../utils/GoBack'
@@ -9,19 +9,65 @@ import { connect } from 'react-redux'
 import constant from '../../expand/api'
 import Time from '../../assets/svg/time.svg'
 import Ban from '../../assets/svg/ban.svg'
+import { Loading } from '../../utils/Loading'
+import {
+    init,
+    Geolocation,
+    setNeedAddress,
+    setLocatingWithReGeocode
+} from "react-native-amap-geolocation"
 
 const { clockIn } = constant
 
 class ClockIn extends React.PureComponent {
     state = {
-        date: null
+        date: null,
+        address: null,
     }
     componentDidMount() {
         let date = moment().format('HH:ss')
         this.setState({ date })
+
+        this.initGeolocation()
     }
+
+    // 获取用户位置
+    initGeolocation = async () => {
+        await PermissionsAndroid.requestMultiple([
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+        ]);
+
+        // // ios
+        setLocatingWithReGeocode(true)
+
+        // // android
+        // setNeedAddress(true)
+
+        // 这里替换成自己的
+        await init({
+            ios: '36af294f26aafd79fdf2f4b37aff2f4a',
+            android: '5a9229f9f634306dc7378d438414cdd6'
+        })
+
+        // 监听
+        Geolocation.watchPosition(({ postion }) => {
+            console.log('postion', postion)
+        })
+
+        Geolocation.getCurrentPosition(({ g }) => {
+            console.log('g', g)
+        })
+
+        // 取消监听
+        Geolocation.clearWatch()
+
+
+    }
+
     _clockIn = () => {
         const { clockInData } = this.props
+        Loading.show()
         const data = {
             "username": "执念",
             "": ""

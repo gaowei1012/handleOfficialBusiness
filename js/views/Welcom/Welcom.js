@@ -28,7 +28,8 @@ export default class Welcom extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.containerBox}>
-        <Image style={{width: width, height: height}} source={require('../../assets/common/weclome.png')}/>
+          <Text>启动页</Text>
+        {/* <Image style={{width: width, height: height}} source={require('../../assets/common/weclome.png')}/> */}
         </View>
       </View>
     );

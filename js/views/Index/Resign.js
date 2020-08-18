@@ -7,6 +7,8 @@ import Input from '../../components/Input'
 import constant from '../../expand/api'
 import {connect} from 'react-redux'
 import actions from './redux/actions'
+import { Loading } from '../../utils/Loading'
+import NavigationUtil from '../../utils/NavigationUtil'
 
 const { resign } = constant
 
@@ -37,7 +39,8 @@ class Resign extends React.PureComponent {
 
     handleSubmit = () => {
         let { username, reason, remarks, end_time, start_time } = this.state
-        const { resignData } = this.props
+        let { resignData } = this.props
+        Loading.show()
         const data = {
             "username": username,
             "reason": reason,
@@ -46,6 +49,11 @@ class Resign extends React.PureComponent {
             "start_time": start_time
         }
         resignData(resign, 'POST', data)
+
+        setTimeout(() => {
+            Loading.hidden()
+            NavigationUtil.goBack(this.props.navigation)
+        }, 300)
     }
     render() {
         const StatusBar = {
