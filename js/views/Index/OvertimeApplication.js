@@ -74,6 +74,7 @@ class OvertimeApplication extends React.PureComponent {
                     name='姓名'
                     isSelect={true}
                     onChangeText={this._name}
+                    width={45}
                 />
                 <Input
                     placeholder='项目组'
@@ -81,6 +82,7 @@ class OvertimeApplication extends React.PureComponent {
                     name='项目组'
                     isSelect={true}
                     onChangeText={this._address}
+                    width={45}
                 />
                 <Input
                     placeholder='填写出差时间'
@@ -88,6 +90,7 @@ class OvertimeApplication extends React.PureComponent {
                     name='时间'
                     isSelect={true}
                     onChangeText={this._date}
+                    width={45}
                 />
                 <Input
                     placeholder='填写请假原因'
@@ -95,12 +98,14 @@ class OvertimeApplication extends React.PureComponent {
                     name='事由'
                     isSelect={true}
                     onChangeText={this._reason}
+                    width={45}
                 />
                 <Input
                     placeholder='填写备注'
                     placeholderTextColor='#ccc'
                     name='备注'
                     onChangeText={this._remarks}
+                    width={45}
                 />
             </>
         );

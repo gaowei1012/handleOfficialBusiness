@@ -62,7 +62,6 @@ class ClockIn extends React.PureComponent {
         // 取消监听
         Geolocation.clearWatch()
 
-
     }
 
     _clockIn = () => {
@@ -73,6 +72,9 @@ class ClockIn extends React.PureComponent {
             "": ""
         }
         clockInData(clockIn, 'POST', data)
+        setTimeout(() => {
+            Loading.hidden()
+        }, 600)
     }
     render() {
         const StatusBar = {
@@ -152,7 +154,7 @@ const styles = StyleSheet.create({
         height: px2dp(100),
         borderRadius: px2dp(50),
         borderWidth: px2dp(6),
-        borderColor: 'red',
+        borderColor: '#33CC99',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: px2dp(20)

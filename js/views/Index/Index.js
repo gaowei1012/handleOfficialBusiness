@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView} from 'react-native'
 import { px2dp } from '../../utils/px2dp'
 import TopNavigationBar from '../../common/TopNavigationBar'
 import NavigationUtil from '../../utils/NavigationUtil'
@@ -13,7 +13,7 @@ import Jia from '../../assets/svg/jia.svg'
 import Ri from '../../assets/svg/ri.svg'
 import Li from '../../assets/svg/li.svg'
 import Chu from '../../assets/svg/chu.svg'
-
+import Gs from '../../assets/svg/gs.svg'
 
 
 class Index extends React.PureComponent {
@@ -27,7 +27,7 @@ class Index extends React.PureComponent {
             {id: 5, name: '请假', icon: <Qing width={24} height={24}/>, com: 'AskLeave' },
             // {id: 6, name: '销假', icon: <DaKa width={24} height={24}/>, com: 'LeaveOff' },
             {id: 7, name: '加班申请', icon: <Jia width={24} height={24}/>, com: 'OvertimeApplication' },
-            {id: 8, name: '消出差', icon: <DaKa width={24} height={24}/>, com: 'Postion' },
+            {id: 8, name: '企业资讯', icon: <Gs width={24} height={24}/>, com: 'CompanyNews' },
         ]
     }
 
@@ -95,7 +95,11 @@ class Index extends React.PureComponent {
         return (
             <SafeAreaView style={styles.landContainer}>
                 {renderTop}
-                {_content}
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                >
+                    {_content}
+                </ScrollView>
             </SafeAreaView>
         )
     }

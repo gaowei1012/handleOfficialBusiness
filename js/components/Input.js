@@ -3,10 +3,10 @@ import { View, StyleSheet, Text, TextInput } from 'react-native'
 import PropTypes from 'prop-types'
 import { px2dp } from '../utils/px2dp'
 
-function Input({ isSelect, name, placeholder, placeholderTextColor, scrollEnabled, onChangeText, isTips, tips, clearButtonMode, clearTextOnFocus, keyboardType }) {
+function Input({ isSelect, name, placeholder, width, placeholderTextColor, scrollEnabled, onChangeText, isTips, tips, clearButtonMode, clearTextOnFocus, keyboardType }) {
     return (
         <View style={styles.inputBox}>
-            <View style={styles.nameBox}>
+            <View style={[styles.nameBox, {width: px2dp(width)}]}>
                 <Text style={styles.text}>{name}</Text>
                 {isSelect ? <Text style={styles.sle}>*</Text> : null}
             </View>
@@ -45,7 +45,8 @@ Input.propTypes = {
             email-address
             phone-pad
      */
-    keyboardType: PropTypes.string
+    keyboardType: PropTypes.string,
+    width: PropTypes.number,
 }
 
 export default Input
@@ -53,7 +54,7 @@ export default Input
 const styles = StyleSheet.create({
     inputBox: {
         flexDirection: 'row',
-        width: px2dp(345),
+        width: px2dp(325),
         alignSelf: 'center',
         marginVertical: px2dp(12),
         borderBottomColor: '#eee',
@@ -62,7 +63,12 @@ const styles = StyleSheet.create({
     },
     nameBox: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    text: {
+        width: '100%',
+        textAlign: 'left'
     },
     sle: {
         marginLeft: px2dp(6),
@@ -71,7 +77,7 @@ const styles = StyleSheet.create({
         color: 'red'
     },
     textBox: {
-        marginHorizontal: px2dp(6),
+        marginHorizontal: px2dp(16),
         paddingHorizontal: px2dp(6)
     },
     tips: {

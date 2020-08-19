@@ -18,12 +18,16 @@ import {
     register_fail,
     register_success,
     resign_fail,
-    resign_success
+    resign_success,
+    company_all_success,
+    company_all_fail,
+    company_detail_fail,
+    company_detail_success
 } from './actions'
 
 function onResignAction(state = {}, action) {
     switch(action.type) {
-        case register_success:
+        case resign_success:
             return {
                 ...state,
                 item: action.item
@@ -181,6 +185,38 @@ function infoAction(state = {}, action) {
     }
 }
 
+function companyAllAction(state = {}, action) {
+    switch(action.type) {
+        case company_all_success:
+            return {
+                ...state,
+                item: action.item
+            }
+        case company_all_fail:
+            return {
+                ...state
+            }
+        default:
+            return state
+    }
+}
+
+function companyDetailAction(state = {}, action) {
+    switch(action.type) {
+        case company_detail_success:
+            return {
+                ...state,
+                item: action.item
+            }
+        case company_detail_fail:
+            return {
+                ...state
+            }
+        default:
+            return state
+    }
+}
+
 export {
     onLeaveAction,
     onGetLeaveByIdAction,
@@ -192,4 +228,6 @@ export {
     onLoginAction,
     onRegisterAction,
     onResignAction,
+    companyAllAction,
+    companyDetailAction,
 }

@@ -10,6 +10,8 @@ const constant = {
     overTime: '/api/overtime/insertOverTime',
     getInfo: '/api/message/findInfo',
     resign: '/api/resign/insertResign',
+    compnyAll: '/api/company/findCompanyAll',
+    companyDetail: '/api/company/findCompanyDetail',
 }
 
 export default constant

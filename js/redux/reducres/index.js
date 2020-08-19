@@ -12,6 +12,8 @@ import {
     onLoginAction,
     onRegisterAction,
     onResignAction,
+    companyAllAction,
+    companyDetailAction,
 } from '../../views/Index/redux/reducres'
 
 const navState = RootNavigation.router.getStateForAction(
@@ -36,6 +38,8 @@ const root = combineReducers({
     login: onLoginAction,
     register: onRegisterAction,
     resign: onResignAction,
+    company: companyAllAction,
+    companyDetail: companyDetailAction,
 })
 
 export default root

@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import actions from './redux/actions'
 import constant from '../../expand/api'
 import { Loading } from '../../utils/Loading'
+import NavigationUtil from '../../utils/NavigationUtil'
 
 const { insterBusiness } = constant
 
@@ -51,6 +52,7 @@ class BusinessTrip extends React.PureComponent {
         addBuinessData(insterBusiness, 'POST', data)
         setTimeout(() => {
             Loading.hidden()
+            NavigationUtil.goBack(this.props.navigation)
         }, 600)
     }
 
@@ -75,6 +77,7 @@ class BusinessTrip extends React.PureComponent {
                     name='姓名'
                     isSelect={true}
                     onChangeText={this._name}
+                    width={50}
                 />
                 <Input
                     placeholder='目的地'
@@ -82,6 +85,7 @@ class BusinessTrip extends React.PureComponent {
                     name='目的地'
                     isSelect={true}
                     onChangeText={this._address}
+                    width={50}
                 />
                 <Input
                     placeholder='填写出差时间'
@@ -89,6 +93,7 @@ class BusinessTrip extends React.PureComponent {
                     name='时间'
                     isSelect={true}
                     onChangeText={this._date}
+                    width={50}
                 />
                 <Input
                     placeholder='填写出差事由'
@@ -96,12 +101,14 @@ class BusinessTrip extends React.PureComponent {
                     name='事由'
                     isSelect={true}
                     onChangeText={this._reason}
+                    width={50}
                 />
                 <Input
                     placeholder='填写备注'
                     placeholderTextColor='#ccc'
                     name='备注'
                     onChangeText={this._remarks}
+                    width={50}
                 />
             </>
         );

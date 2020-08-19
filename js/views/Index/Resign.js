@@ -76,6 +76,7 @@ class Resign extends React.PureComponent {
                     name='姓名'
                     isSelect={true}
                     onChangeText={this._name}
+                    width={55}
                 />
                 <Input
                     placeholder='入职时间'
@@ -83,6 +84,7 @@ class Resign extends React.PureComponent {
                     name='入职时间'
                     isSelect={true}
                     onChangeText={this._createTime}
+                    width={55}
                 />
                 <Input
                     placeholder='离职时间'
@@ -90,6 +92,7 @@ class Resign extends React.PureComponent {
                     name='离职时间'
                     isSelect={true}
                     onChangeText={this._endTime}
+                    width={55}
                 />
                 <Input
                     placeholder='原因'
@@ -97,12 +100,14 @@ class Resign extends React.PureComponent {
                     name='离职原因'
                     isSelect={true}
                     onChangeText={this._reason}
+                    width={55}
                 />
                 <Input
                     placeholder='填写备注'
                     placeholderTextColor='#ccc'
                     name='备注'
                     onChangeText={this._remarks}
+                    width={55}
                 />
             </>
         );

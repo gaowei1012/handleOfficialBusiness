@@ -22,6 +22,36 @@ export const register_success = 'register_success'
 export const register_fail = 'register_fail'
 export const resign_success = 'resign_success'
 export const resign_fail = 'resign_fail'
+export const company_all_success = 'company_all_success'
+export const company_all_fail = 'company_all_fail'
+export const company_detail_success = 'company_detail_success'
+export const company_detail_fail = 'company_detail_fail'
+
+function companyDetailData(url, method, data) {
+    return dispatch => {
+        request(url, method, data)
+            .then(ret => {
+                let data = ret.data
+                handleData(dispatch, data, company_detail_success)
+            })
+            .catch(err => {
+                handleErrorData(dispatch, err, company_detail_fail)
+            })
+    }
+}
+
+function companyAllData(url, method) {
+    return dispatch => {
+        request(url, method)
+            .then(ret => {
+                let data = ret.data
+                handleData(dispatch, data, company_all_success)
+            })
+            .catch(err => {
+                handleErrorData(dispatch, err, company_all_fail)
+            })
+    }
+}
 
 function resignData(url, method, data) {
     return dispatch => {
@@ -155,4 +185,6 @@ export default {
     loginData,
     registerData,
     resignData,
+    companyAllData,
+    companyDetailData,
 }

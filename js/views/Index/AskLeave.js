@@ -78,13 +78,15 @@ class AskLeave extends React.PureComponent {
                     name='姓名'
                     isSelect={true}
                     onChangeText={this._name}
+                    width={40}
                 />
                 <Input
-                    placeholder='目的地'
+                    placeholder='项目组'
                     placeholderTextColor='#ccc'
-                    name='目的地'
+                    name='项目组'
                     isSelect={true}
                     onChangeText={this._address}
+                    width={40}
                 />
                 <Input
                     placeholder='填写出差时间'
@@ -92,6 +94,7 @@ class AskLeave extends React.PureComponent {
                     name='时间'
                     isSelect={true}
                     onChangeText={this._date}
+                    width={40}
                 />
                 <Input
                     placeholder='填写请假原因'
@@ -99,12 +102,14 @@ class AskLeave extends React.PureComponent {
                     name='事由'
                     isSelect={true}
                     onChangeText={this._reason}
+                    width={40}
                 />
                 <Input
                     placeholder='填写备注'
                     placeholderTextColor='#ccc'
                     name='备注'
                     onChangeText={this._remarks}
+                    width={40}
                 />
             </>
         );

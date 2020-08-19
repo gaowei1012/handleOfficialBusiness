@@ -25,6 +25,8 @@ import SySetting from '../views/Index/SySetting'
 import About from '../views/Index/About'
 import Resign from '../views/Index/Resign'
 import Postion from '../views/Index/Postion'
+import CompanyNews from '../views/Index/CompanyNews'
+import CompanyDetail from '../views/Index/CompanyDetail'
 
 
 export const rootCom = 'Init';
@@ -125,6 +127,18 @@ const MainNavigator = createStackNavigator({
     },
     Postion: {
         screen: Postion,
+        navigationOptions: {
+            header: null
+        }
+    },
+    CompanyNews: {
+        screen: CompanyNews,
+        navigationOptions: {
+            header: null
+        }
+    },
+    CompanyDetail: {
+        screen: CompanyDetail,
         navigationOptions: {
             header: null
         }
